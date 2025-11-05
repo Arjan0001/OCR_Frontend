@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS-05: Intelligent Multilingual Document Understanding</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body data-theme="dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">PS-05</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Challenge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#upload">Upload</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bulk">Bulk Upload</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button id="themeToggle" class="btn btn-link nav-link">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">PS-05: Intelligent</span>
+                    <span class="title-line">Multilingual Document</span>
+                    <span class="title-line highlight">Understanding</span>
+                </h1>
+                <p class="lead hero-subtitle">AI-powered system for multilingual, layout-aware document parsing and structured extraction.</p>
+                <div class="hero-buttons">
+                    <a href="#upload" class="btn btn-primary btn-lg btn-hero">
+                        <span>Get Started</span>
+                        <i class="fas fa-rocket"></i>
+                    </a>
+                    <a href="#about" class="btn btn-outline-light btn-lg btn-hero-secondary">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Advanced AI capabilities for comprehensive document understanding</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                            <div class="icon-bg"></div>
+                        </div>
+                        <h3>Multilingual Parsing</h3>
+                        <p>Detects Hindi, Urdu, Arabic, English, Persian, and many more languages with high accuracy.</p>
+                        <div class="feature-stats">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Languages</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="icon-bg"></div>
+                        </div>
+                        <h3>Layout Preservation</h3>
+                        <p>Extracts structured data while maintaining visual hierarchy and document formatting.</p>
+                        <div class="feature-stats">
+                            <span class="stat-number">90%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                            <div class="icon-bg"></div>
+                        </div>
+                        <h3>Smart Output</h3>
+                        <p>Generates JSON with semantic bounding boxes and natural-language explanations.</p>
+                        <div class="feature-stats">
+                            <span class="stat-number">JSON</span>
+                            <span class="stat-label">Format</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Single Upload Section -->
+    <section id="upload" class="upload-section">
+        <div class="container">
+            <h2>Single Document Inference</h2>
+            <div class="upload-box" id="singleUploadBox">
+                <input type="file" id="singleFileInput" accept=".png,.jpg,.jpeg" class="file-input" hidden>
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag and drop your image here or click to browse</p>
+                    <small>Supported formats: PNG, JPG, JPEG</small>
+                </div>
+            </div>
+            <div id="previewContainer" class="mt-4" style="display: none;">
+                <img id="imagePreview" class="img-fluid" alt="Preview">
+                <button id="analyzeBtn" class="btn btn-primary mt-3">Analyze Document</button>
+            </div>
+            <div id="resultContainer" class="mt-4" style="display: none;">
+                <img id="annotatedImage" class="img-fluid" alt="Annotated Image">
+                <button id="downloadBtn" class="btn btn-secondary mt-3">Download Annotated Image</button>
+                <div class="json-viewer mt-3">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#jsonContent">
+                        View Annotations
+                    </button>
+                    <div class="collapse" id="jsonContent">
+                        <pre id="jsonViewer"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Bulk Upload Section -->
+<section id="bulk" class="bulk-section">
+    <div class="container">
+        <h2>Bulk Processing Mode</h2>
+        <div class="upload-box" id="bulkUploadBox">
+            <input type="file" id="bulkFileInput" accept=".png,.jpg,.jpeg" multiple class="file-input" hidden>
+            <div class="upload-content">
+                <i class="fas fa-files"></i>
+                <p>Select multiple files for batch processing</p>
+                <small>Supported formats: PNG, JPG, JPEG</small>
+            </div>
+        </div>
+        
+        <div id="bulkPreview" class="mt-4">
+            <ul id="fileList" class="list-group"></ul>
+            <button id="batchAnalyzeBtn" class="btn btn-primary mt-3" style="display: none;">Run Batch Analysis</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="bulkProgress" class="mt-4" style="display: none;">
+            <h5 id="progressText">Processing...</h5>
+            <div class="progress" style="height: 25px;">
+                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                     role="progressbar" style="width: 0%">0%</div>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="bulkResults" class="mt-4" style="display: none;"></div>
+    </div>
+</section>
+
+    <!-- About Challenge Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About The Challenge</h2>
+            <div class="about-content">
+                <p>PS-05 focuses on advancing the state-of-the-art in:</p>
+                <ul>
+                    <li>Multilingual OCR and document layout detection</li>
+                    <li>Extracting tables, charts, maps, and text as structured data</li>
+                    <li>Producing output JSON with bbox coordinates, natural language descriptions, and language identification</li>
+                </ul>
+
+                <div class="stage-cards">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stage-card">
+                                <h4>Stage-1</h4>
+                                <p>Layout detection (mAP)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stage-card">
+                                <h4>Stage-2</h4>
+                                <p>Table/Chart/Map to Text (T2T-Gen, BleuRT)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stage-card">
+                                <h4>Stage-3</h4>
+                                <p>Full multilingual structured understanding</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Intelligent Multilingual Document Understanding By ZeR0-DaY</p>
+            <div class="developers-section mt-3">
+                <p class="mb-2"><strong>Developed by:</strong></p>
+                <p class="developers-names">
+                    Kartiki Raghuwanshi • Piyush Bhavsar • Pratik Meshram • Arjan Pathan
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
