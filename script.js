@@ -87,7 +87,7 @@ analyzeBtn.addEventListener('click', async (e) => {
     formData.append('file', file);
 
     try {
-        const response = await fetch('https://stage-1-ps05-dpiit.onrender.com/predict/single', {
+        const response = await fetch('https://pylord-layout.hf.space/predict/single', {
             method: 'POST',
             body: formData
         });
@@ -172,7 +172,7 @@ batchAnalyzeBtn.addEventListener('click', async () => {
             const formData = new FormData();
             formData.append('file', file);
 
-            const response = await fetch('https://stage-1-ps05-dpiit.onrender.com/predict/single', {
+            const response = await fetch('https://pylord-layout.hf.space/predict/single', {
                 method: 'POST',
                 body: formData
             });
@@ -323,3 +323,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 
 });
+
